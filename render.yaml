@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: learnhub
+    runtime: node
+    rootDir: client
+    buildCommand: yarn && yarn build
+    startCommand: yarn start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        sync: false
