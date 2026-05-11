@@ -1,6 +1,6 @@
 const express      = require('express');
 const cors         = require('cors');
-const { PORT, CLIENT_ORIGIN, NODE_ENV } = require('./config');
+const { PORT, ALLOWED_ORIGINS, NODE_ENV } = require('./config');
 const logger       = require('./lib/logger');
 const errorHandler = require('./middleware/errorHandler');
 const { createLimiter } = require('./middleware/rateLimiter');
@@ -18,7 +18,13 @@ app.use((req, res, next) => {
 });
 
 // ── Core middleware ──────────────────────────────────────────────────────────
-app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }));
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+    cb(new Error(`CORS: origin ${origin} not allowed`));
+  },
+  credentials: true,
+}));
 app.use(express.json({ limit: '1mb' }));
 app.use(sanitizeBody);
 
