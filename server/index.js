@@ -1,5 +1,4 @@
 const express      = require('express');
-const cors         = require('cors');
 const { PORT, ALLOWED_ORIGINS, NODE_ENV } = require('./config');
 const logger       = require('./lib/logger');
 const errorHandler = require('./middleware/errorHandler');
@@ -8,7 +7,20 @@ const { sanitizeBody }  = require('./middleware/sanitize');
 
 const app = express();
 
-// ── Security headers ────────────────────────────────────────────────────────
+// ── CORS — must be first so preflight OPTIONS requests are answered ──────────
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  }
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+
+// ── Security headers ─────────────────────────────────────────────────────────
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');
@@ -17,14 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ── Core middleware ──────────────────────────────────────────────────────────
-app.use(cors({
-  origin: (origin, cb) => {
-    if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
-    cb(new Error(`CORS: origin ${origin} not allowed`));
-  },
-  credentials: true,
-}));
+// ── Core middleware ───────────────────────────────────────────────────────────
 app.use(express.json({ limit: '1mb' }));
 app.use(sanitizeBody);
 
