@@ -1,0 +1,57 @@
+[
+  {
+    "id": "p_photosynthesis",
+    "title": "What is photosynthesis and how does it work?",
+    "body": "I keep reading that plants make their own food but I don't understand the actual process. What happens step by step inside a leaf? Is it the same in all plants?",
+    "category": "Science",
+    "tags": ["biology", "plants", "photosynthesis"],
+    "author": "u_bob",
+    "upvotes": 12,
+    "views": 84,
+    "createdAt": "2026-02-10T09:00:00Z"
+  },
+  {
+    "id": "p_quadratic",
+    "title": "How do I solve quadratic equations?",
+    "body": "I understand linear equations fine but quadratics confuse me. When should I use factoring vs the quadratic formula vs completing the square? Are there rules for choosing the method?",
+    "category": "Math",
+    "tags": ["algebra", "quadratic", "equations"],
+    "author": "u_alice",
+    "upvotes": 19,
+    "views": 130,
+    "createdAt": "2026-02-11T11:00:00Z"
+  },
+  {
+    "id": "p_ww1",
+    "title": "Why did World War I start?",
+    "body": "I know the assassination of Archduke Franz Ferdinand is usually mentioned but that seems too simple. Were there deeper causes? How did one assassination lead to a world war?",
+    "category": "History",
+    "tags": ["world war 1", "causes", "europe"],
+    "author": "u_carol",
+    "upvotes": 8,
+    "views": 62,
+    "createdAt": "2026-02-13T14:00:00Z"
+  },
+  {
+    "id": "p_ramrom",
+    "title": "What is the difference between RAM and ROM?",
+    "body": "My teacher mentioned both but I still get confused about which one does what. Can someone explain with a simple real-world comparison?",
+    "category": "Technology",
+    "tags": ["hardware", "memory", "computers"],
+    "author": "u_alice",
+    "upvotes": 15,
+    "views": 98,
+    "createdAt": "2026-02-14T10:30:00Z"
+  },
+  {
+    "id": "p_essay",
+    "title": "How can I improve my essay writing?",
+    "body": "I always get marked down for 'lack of structure' and 'weak argument'. What are the most important things to fix when writing academic essays?",
+    "category": "Language",
+    "tags": ["writing", "essays", "academic"],
+    "author": "u_carol",
+    "upvotes": 11,
+    "views": 75,
+    "createdAt": "2026-02-15T08:00:00Z"
+  }
+]

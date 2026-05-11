@@ -1,0 +1,261 @@
+# ELearning Platform — Project Notes
+
+## Vision
+A free, community-driven learning platform where users share downloadable resource links,
+ask questions, and get answers — organized by subject area (Science, History, Math, etc.).
+No selling. No file hosting. Users contribute external download links only.
+
+---
+
+## Recommended Website Structure
+
+### Core Sections
+
+1. **Home**
+   - Featured resources
+   - Trending questions/discussions
+   - Subject category grid (Science, History, Math, Technology, Arts, etc.)
+   - "How it works" intro for new visitors
+
+2. **Resources Library**
+   - Browse by category/subject
+   - Each resource = title + description + external download link + uploader info
+   - Filter by: subject, type (PDF, video link, eBook, etc.), date, popularity
+   - Search bar
+   - Users submit a link (Google Drive, Dropbox, Mega, etc.) — platform never stores the file
+
+3. **Q&A / Forum (Blog-style)**
+   - Subject-aligned sections (Science, History, Math, Language, etc.)
+   - Users post questions with tags
+   - Other users post answers; accepted answer marked by asker
+   - Upvote/downvote system
+   - Each subject has its own feed/board
+
+4. **User Profiles**
+   - Display name, subject interests/alignment
+   - Resources they've shared
+   - Questions asked & answers given
+   - Reputation/contribution score
+
+5. **Authentication**
+   - Register / Login (email or OAuth)
+   - Profile setup: choose subject alignments (shown on posts and recommendations)
+
+6. **Admin Panel**
+   - Report/flag system for bad links or spam
+   - Category management
+   - User moderation
+
+---
+
+## Page-Level Sitemap
+
+```
+/                          → Home
+/resources                 → All resources
+/resources/:category       → Resources filtered by subject (e.g. /resources/science)
+/resources/:id             → Single resource detail page
+/resources/submit          → Submit a new resource (link form)
+/forum                     → All Q&A boards
+/forum/:category           → Subject board (e.g. /forum/history)
+/forum/:category/:post-id  → Single question + answers
+/forum/ask                 → Post a new question
+/profile/:username         → Public user profile
+/dashboard                 → Private user dashboard
+/login                     → Login page
+/register                  → Register page
+/admin                     → Admin panel (protected)
+```
+
+---
+
+## Data Models (High-Level)
+
+### User
+- id, name, email, password (hashed)
+- subjects[] (interests/alignment: Science, Math, etc.)
+- role (user | moderator | admin)
+- reputation score
+
+### Resource
+- id, title, description
+- externalLink (URL to file — not stored on server)
+- fileType (PDF, Video, eBook, etc.)
+- category (subject)
+- uploadedBy (user ref)
+- createdAt, upvotes, downloads (click count)
+
+### Post (Question)
+- id, title, body
+- category (subject)
+- tags[]
+- author (user ref)
+- createdAt, views, upvotes
+
+### Answer
+- id, body
+- postId (question ref)
+- author (user ref)
+- createdAt, upvotes, isAccepted (bool)
+
+---
+
+## Tech Stack Recommendation
+
+### Frontend
+- **Next.js** (React) — SSR for SEO, fast page loads
+- **Tailwind CSS** — rapid styling
+- **shadcn/ui** — component library
+
+### Backend
+- **Node.js + Express** — REST API
+- **JSON file as database (temporary)** — see section below
+- Swap to PostgreSQL + Prisma later with minimal code changes
+
+### Auth
+- **JWT tokens** stored in httpOnly cookies — works without a real DB
+- Passwords hashed with **bcrypt** before writing to JSON
+
+### Search
+- In-memory filter over the JSON data (fast enough for small datasets)
+
+### Hosting
+- **Vercel** — frontend
+- **Railway** or **Render** — Node.js backend (free tier)
+
+---
+
+## JSON File Database Strategy
+
+### Why it works for now
+- No setup, no cost, works offline
+- Easy to inspect and edit manually
+- Swap to a real DB later by replacing only the data-access layer
+
+### File structure
+```
+server/
+  data/
+    users.json
+    resources.json
+    posts.json
+    answers.json
+```
+
+### What each file looks like
+
+**users.json**
+```json
+[
+  {
+    "id": "u1",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "passwordHash": "$2b$10$...",
+    "subjects": ["Science", "Math"],
+    "role": "user",
+    "reputation": 0,
+    "createdAt": "2026-05-11T00:00:00Z"
+  }
+]
+```
+
+**resources.json**
+```json
+[
+  {
+    "id": "r1",
+    "title": "Biology 101 Notes",
+    "description": "Complete notes for intro biology",
+    "externalLink": "https://drive.google.com/...",
+    "fileType": "PDF",
+    "category": "Science",
+    "uploadedBy": "u1",
+    "upvotes": 0,
+    "downloads": 0,
+    "createdAt": "2026-05-11T00:00:00Z"
+  }
+]
+```
+
+**posts.json**
+```json
+[
+  {
+    "id": "p1",
+    "title": "What is Newton's second law?",
+    "body": "Can someone explain it with an example?",
+    "category": "Science",
+    "tags": ["physics", "newton"],
+    "author": "u1",
+    "upvotes": 0,
+    "views": 0,
+    "createdAt": "2026-05-11T00:00:00Z"
+  }
+]
+```
+
+**answers.json**
+```json
+[
+  {
+    "id": "a1",
+    "postId": "p1",
+    "body": "F = ma. If you push a 2kg object with 10N, it accelerates at 5 m/s².",
+    "author": "u2",
+    "upvotes": 0,
+    "isAccepted": false,
+    "createdAt": "2026-05-11T00:00:00Z"
+  }
+]
+```
+
+### How the data layer will be structured (easy to swap later)
+```
+server/
+  db/
+    index.js        ← exports read/write helpers (readJSON, writeJSON)
+    users.js        ← all user queries (findByEmail, createUser, etc.)
+    resources.js    ← all resource queries
+    posts.js        ← all post queries
+    answers.js      ← all answer queries
+```
+
+When switching to PostgreSQL, you replace only the files inside `server/db/`
+and the rest of the app (routes, controllers) stays the same.
+
+---
+
+## Key Design Principles
+
+- No file uploads — only external links (keeps storage costs zero)
+- Subject alignment drives personalization (feed shows your subjects first)
+- Community moderation (flag, report) to keep quality high
+- Mobile-first layout
+- SEO-friendly URLs for resource and forum pages
+
+---
+
+## Suggested Build Order (Phases)
+
+**Phase 1 — Foundation**
+- Auth (register/login + subject alignment setup)
+- Subject categories seeded in DB
+- Basic resource submission form (link + description + category)
+- Resource browse/filter page
+
+**Phase 2 — Community**
+- Q&A forum with subject boards
+- Post question, answer, accept answer
+- Upvote system
+
+**Phase 3 — Polish**
+- User profiles and reputation
+- Search across resources and forum
+- Report/flag system
+- Admin panel
+
+**Phase 4 — Growth**
+- Email notifications (new answers, trending resources)
+- Bookmarks / saved resources
+- Resource recommendations based on subject alignment

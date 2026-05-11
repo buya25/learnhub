@@ -1,0 +1,32 @@
+[
+  {
+    "id": "u_alice",
+    "name": "Alice Mwangi",
+    "email": "alice@demo.com",
+    "passwordHash": "$2b$10$OcMHkE3bBkNMxNDxoXNmLOXVlwRr6ViH3TKA5xM5F0MnlXmDLGl3m",
+    "subjects": ["Science", "Math"],
+    "role": "user",
+    "reputation": 45,
+    "createdAt": "2026-01-10T08:00:00Z"
+  },
+  {
+    "id": "u_bob",
+    "name": "Bob Kariuki",
+    "email": "bob@demo.com",
+    "passwordHash": "$2b$10$OcMHkE3bBkNMxNDxoXNmLOXVlwRr6ViH3TKA5xM5F0MnlXmDLGl3m",
+    "subjects": ["History", "Language"],
+    "role": "user",
+    "reputation": 30,
+    "createdAt": "2026-01-12T09:00:00Z"
+  },
+  {
+    "id": "u_carol",
+    "name": "Carol Osei",
+    "email": "carol@demo.com",
+    "passwordHash": "$2b$10$OcMHkE3bBkNMxNDxoXNmLOXVlwRr6ViH3TKA5xM5F0MnlXmDLGl3m",
+    "subjects": ["Technology", "Arts"],
+    "role": "user",
+    "reputation": 60,
+    "createdAt": "2026-01-15T10:00:00Z"
+  }
+]

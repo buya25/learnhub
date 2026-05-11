@@ -1,0 +1,74 @@
+[
+  {
+    "id": "r_bio101",
+    "title": "Biology 101 — Complete Notes",
+    "description": "Comprehensive notes covering cells, photosynthesis, respiration, genetics, and ecosystems. Great for high school and first-year university students.",
+    "externalLink": "https://drive.google.com/file/d/demo_biology101",
+    "fileType": "PDF",
+    "category": "Science",
+    "uploadedBy": "u_alice",
+    "upvotes": 24,
+    "downloads": 112,
+    "createdAt": "2026-01-20T10:00:00Z"
+  },
+  {
+    "id": "r_calculus",
+    "title": "Calculus Quick Reference Cheat Sheet",
+    "description": "All key formulas for limits, derivatives, and integrals on two pages. Print-friendly.",
+    "externalLink": "https://drive.google.com/file/d/demo_calculus",
+    "fileType": "PDF",
+    "category": "Math",
+    "uploadedBy": "u_carol",
+    "upvotes": 38,
+    "downloads": 205,
+    "createdAt": "2026-01-22T11:30:00Z"
+  },
+  {
+    "id": "r_ww2",
+    "title": "World War II — Complete Timeline",
+    "description": "A detailed visual timeline from 1939 to 1945 covering all major events, battles, and turning points across Europe and the Pacific.",
+    "externalLink": "https://drive.google.com/file/d/demo_ww2timeline",
+    "fileType": "PDF",
+    "category": "History",
+    "uploadedBy": "u_bob",
+    "upvotes": 17,
+    "downloads": 88,
+    "createdAt": "2026-01-25T14:00:00Z"
+  },
+  {
+    "id": "r_python",
+    "title": "Python for Absolute Beginners",
+    "description": "A 3-hour video course covering variables, loops, functions, and file I/O. No prior programming experience needed.",
+    "externalLink": "https://drive.google.com/file/d/demo_python_beginner",
+    "fileType": "Video",
+    "category": "Technology",
+    "uploadedBy": "u_carol",
+    "upvotes": 51,
+    "downloads": 340,
+    "createdAt": "2026-02-01T09:00:00Z"
+  },
+  {
+    "id": "r_grammar",
+    "title": "English Grammar Handbook",
+    "description": "Covers tenses, punctuation, sentence structure, and common mistakes. Suitable for ESL learners and native speakers alike.",
+    "externalLink": "https://drive.google.com/file/d/demo_english_grammar",
+    "fileType": "eBook",
+    "category": "Language",
+    "uploadedBy": "u_alice",
+    "upvotes": 29,
+    "downloads": 158,
+    "createdAt": "2026-02-05T13:00:00Z"
+  },
+  {
+    "id": "r_algebra",
+    "title": "Algebra Fundamentals — Lecture Slides",
+    "description": "Slide deck covering linear equations, inequalities, polynomials, and factoring with worked examples.",
+    "externalLink": "https://drive.google.com/file/d/demo_algebra_slides",
+    "fileType": "Slides",
+    "category": "Math",
+    "uploadedBy": "u_bob",
+    "upvotes": 14,
+    "downloads": 76,
+    "createdAt": "2026-02-08T16:00:00Z"
+  }
+]

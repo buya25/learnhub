@@ -1,0 +1,65 @@
+[
+  {
+    "id": "a1",
+    "postId": "p_photosynthesis",
+    "body": "Photosynthesis is the process plants use to convert light energy into chemical energy (glucose). It happens in two main stages:\n\n1. Light-dependent reactions (in the thylakoid membrane): Sunlight splits water molecules, releasing oxygen as a byproduct and generating ATP and NADPH.\n\n2. The Calvin cycle (in the stroma): The ATP and NADPH are used to convert CO₂ from the air into glucose.\n\nThe overall equation is: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂\n\nMost plants use this process (called C3 photosynthesis), though plants in hot dry climates use slightly different variations (C4 and CAM) to reduce water loss.",
+    "author": "u_alice",
+    "upvotes": 18,
+    "isAccepted": true,
+    "createdAt": "2026-02-10T10:15:00Z"
+  },
+  {
+    "id": "a2",
+    "postId": "p_photosynthesis",
+    "body": "To add to Alice's answer — a simple way to remember it: think of a plant as a tiny solar-powered food factory. The leaves are the solar panels (capturing light), the chloroplasts are the factory floor, and glucose is the finished product. The oxygen we breathe is essentially the factory's waste gas.",
+    "author": "u_carol",
+    "upvotes": 7,
+    "isAccepted": false,
+    "createdAt": "2026-02-10T11:30:00Z"
+  },
+  {
+    "id": "a3",
+    "postId": "p_quadratic",
+    "body": "Great question! Here's when to use each method:\n\n**Factoring** — fastest when the equation factors cleanly. Try this first. Example: x² - 5x + 6 = 0 → (x-2)(x-3) = 0 → x = 2 or 3.\n\n**Quadratic formula** — works for ALL quadratics, messy or clean. Use it when factoring doesn't work quickly: x = (-b ± √(b²-4ac)) / 2a\n\n**Completing the square** — useful for deriving the formula or converting to vertex form, but rarely the fastest solving method.\n\n**Quick rule:** Try factoring for 30 seconds. If you don't see it, go straight to the quadratic formula. The discriminant (b²-4ac) also tells you how many solutions: positive = 2 solutions, zero = 1, negative = no real solutions.",
+    "author": "u_carol",
+    "upvotes": 22,
+    "isAccepted": true,
+    "createdAt": "2026-02-11T12:45:00Z"
+  },
+  {
+    "id": "a4",
+    "postId": "p_ww1",
+    "body": "You're right that the assassination was just the trigger. Historians point to four deeper causes (often remembered as MAIN):\n\n**M — Militarism**: European powers had been building massive armies and navies for decades, creating a culture where war was seen as inevitable and even glorious.\n\n**A — Alliance system**: Europe was split into two armed camps — the Triple Entente (France, Russia, Britain) and the Triple Alliance (Germany, Austria-Hungary, Italy). When one country mobilized, treaty obligations dragged everyone else in.\n\n**I — Imperialism**: Competition for colonies created constant tension, especially between Germany and the established empires of Britain and France.\n\n**N — Nationalism**: Ethnic groups across the Balkans (like the Serbs) wanted independence, threatening the multi-ethnic Austro-Hungarian Empire.\n\nThe assassination was the spark that ignited decades of accumulated tension.",
+    "author": "u_bob",
+    "upvotes": 14,
+    "isAccepted": true,
+    "createdAt": "2026-02-13T16:00:00Z"
+  },
+  {
+    "id": "a5",
+    "postId": "p_ramrom",
+    "body": "Think of it like a desk vs a filing cabinet:\n\n**RAM (Random Access Memory)** = your desk. It holds only what you're currently working on. It's fast to access but everything disappears when you turn off the computer. More RAM means you can have more things open at once.\n\n**ROM (Read-Only Memory)** = a locked filing cabinet with the instruction manual. It holds permanent instructions (like how to start the computer). You can read it but can't easily change it, and it keeps its data when the power is off.\n\nIn short: RAM is temporary working space, ROM is permanent stored instructions.",
+    "author": "u_carol",
+    "upvotes": 20,
+    "isAccepted": true,
+    "createdAt": "2026-02-14T11:00:00Z"
+  },
+  {
+    "id": "a6",
+    "postId": "p_essay",
+    "body": "The two most common structural problems are a weak introduction and no clear argument thread. Here's what helped me:\n\n1. **Start with a clear thesis** — one sentence that states your argument. Everything in the essay should support this.\n2. **Use the PEEL structure per paragraph**: Point → Evidence → Explanation → Link back to thesis.\n3. **Write the conclusion first** as a draft — it forces you to know what you're arguing before you write the body.\n4. **Signpost your transitions** — phrases like 'Furthermore...', 'However...', 'This demonstrates that...' help the reader follow your logic.",
+    "author": "u_bob",
+    "upvotes": 9,
+    "isAccepted": false,
+    "createdAt": "2026-02-15T09:30:00Z"
+  },
+  {
+    "id": "a7",
+    "postId": "p_essay",
+    "body": "One practical tip: after writing your draft, read only the first sentence of each paragraph in order. They should together tell the story of your whole argument. If they don't flow or connect, your structure needs work. It's a quick self-check that takes under a minute.",
+    "author": "u_alice",
+    "upvotes": 5,
+    "isAccepted": true,
+    "createdAt": "2026-02-15T13:00:00Z"
+  }
+]
